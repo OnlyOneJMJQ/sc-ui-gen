@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {
   ContractData,
   ContractForm
-} from "drizzle-react-components";
+} from "@drizzle/react-components";
 import ContractCallForm from "./ContractCallForm";
 
 export default class UIGenerator extends React.Component {

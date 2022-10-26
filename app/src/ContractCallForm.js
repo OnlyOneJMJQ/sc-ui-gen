@@ -1,7 +1,7 @@
-import { drizzleConnect } from "drizzle-react";
+import { drizzleConnect } from "@drizzle/store";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { ContractData } from "drizzle-react-components";
+import { ContractData } from "@drizzle/react-components";
 
 class ContractCallForm extends Component {
   constructor(props, context) {
@@ -47,7 +47,7 @@ class ContractCallForm extends Component {
       return this.state[input.name];
     });
 
-    this.setState({methodInputs: [...convertedInputs]});
+    this.setState({ methodInputs: [...convertedInputs] });
   }
 
   handleInputChange(event) {
