@@ -1,4 +1,4 @@
-import { drizzleConnect } from "@drizzle/store";
+import { drizzleConnect } from "@drizzle/react-plugin";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { ContractData } from "@drizzle/react-components";
@@ -18,7 +18,7 @@ class ContractCallForm extends Component {
 
     this.inputs = [];
     var initialState = {
-      methodInputs: []
+      methodInputs: [],
     };
 
     // Iterate over abi for correct function.
@@ -41,8 +41,8 @@ class ContractCallForm extends Component {
     event.preventDefault();
 
     const convertedInputs = this.inputs.map((input, index) => {
-      if (input.type === 'bytes32') {
-        return this.utils.toHex(this.state[input.name])
+      if (input.type === "bytes32") {
+        return this.utils.toHex(this.state[input.name]);
       }
       return this.state[input.name];
     });
@@ -71,12 +71,21 @@ class ContractCallForm extends Component {
     let syncedData = "";
 
     if (this.state.methodInputs.length) {
-      syncedData = <ContractData contract={this.props.contract} method={this.props.method} methodArgs={this.state.methodInputs} />
+      syncedData = (
+        <ContractData
+          contract={this.props.contract}
+          method={this.props.method}
+          methodArgs={this.state.methodInputs}
+        />
+      );
     }
 
     return (
       <div>
-        <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
+        <form
+          className="pure-form pure-form-stacked"
+          onSubmit={this.handleSubmit}
+        >
           {this.inputs.map((input, index) => {
             var inputType = this.translateType(input.type);
             var inputLabel = this.props.labels
@@ -124,7 +133,7 @@ ContractCallForm.propTypes = {
  * Export connected component.
  */
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     contracts: state.contracts,
   };

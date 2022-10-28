@@ -5,6 +5,7 @@
   "dependencies": {
     "@drizzle/store": "^1.5.3",
     "@drizzle/react-components": "^1.5.3",
+    "@drizzle/react-plugin": "^1.5.3",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-scripts": "2.1.3"
