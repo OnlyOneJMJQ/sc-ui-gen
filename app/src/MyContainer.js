@@ -1,7 +1,7 @@
 import MyComponent from "./MyComponent";
-import { drizzleConnect } from "drizzle-react";
+import { drizzleConnect } from "@drizzle/react-plugin";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     accounts: state.accounts,
     SimpleStorage: state.contracts.SimpleStorage,
